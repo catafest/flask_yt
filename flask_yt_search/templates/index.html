@@ -1,0 +1,17 @@
+<link href="{{ url_for('static', filename='album.css') }} rel="stylesheet">
+<section>
+    <form method="POST">
+        <input type="text" name="query" class="form-control">
+        <button type="submit" name="submit" value="search" class="btn btn-primary my-2">YouTube Search</button>
+        <button type="submit" name="submit" value="lucky" class="btn btn-secondary my-2">I'm Feeling Lucky</button>
+      </form>
+</section>
+<hr>
+<section>
+{% for video in videos %}
+<p>{{ video.title }}</p>
+<p><img  width="176" height="176" src="{{ video.thumbnail }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" ></img></p>
+<p>Time: {{ video.duration }}</p>
+<p><a type="button" href="{{ video.url }}" class="btn btn-sm btn-outline-secondary">View</a></p>
+{% endfor %}
+</section>
